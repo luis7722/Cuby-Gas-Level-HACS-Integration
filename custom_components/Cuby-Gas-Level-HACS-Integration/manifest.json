@@ -3,9 +3,11 @@
   "name": "Cuby Gas Level",
   "version": "1.0.0",
   "iot_class": "cloud_polling",
-  "codeowners": ["@luis7722"],
   "integration_type": "hub",
   "requirements": [],
-  "config_flow": true,
+  "config_flow": true,  
+  "codeowners": ["@luis7722"],
+  "documentation": "https://github.com/luis7722/Cuby-Gas-Level-HACS-Integration/tree/v1.0.0",
+  "issue_tracker": "https://github.com/luis7722/Cuby-Gas-Level-HACS-Integration/issues",
   "loggers": ["custom_components.cuby_gas"]
 }
