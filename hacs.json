@@ -1,0 +1,8 @@
+{
+  "name": "Cuby Gas Level",
+  "content_in_root": false,
+  "domains": ["cuby_gas"],
+  "country": "global",
+  "logo": "images/logo.png",
+  "icon": "images/icon.png"
+}

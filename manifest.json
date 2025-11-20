@@ -1,0 +1,11 @@
+{
+  "domain": "cuby_gas",
+  "name": "Cuby Gas Level",
+  "version": "1.0.0",
+  "iot_class": "cloud_polling",
+  "codeowners": ["@luis7722"],
+  "integration_type": "hub",
+  "requirements": [],
+  "config_flow": true,
+  "loggers": ["custom_components.cuby_gas"]
+}

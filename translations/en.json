@@ -1,0 +1,19 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Cuby Gas Level",
+        "description": "Enter your Cuby credentials and device IDs",
+        "data": {
+          "email": "Email",
+          "password": "Password",
+          "device_ids": "Device IDs (comma-separated)"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid authentication or token retrieval failed.",
+      "missing_fields": "Please fill all fields."
+    }
+  }
+}
