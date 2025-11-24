@@ -1,6 +1,6 @@
 # Cuby Gas Level (Home Assistant)
 
-Custom integration to display Cuby Smart gas level history for one or more devices. Includes:
+Custom integration to display [Cuby Smart](https://cuby.mx/collections/cuby/products/cuby-helios-pro-medidor-gas-lp) gas level history for one or more devices. Includes:
 - Config Flow (UI) for credentials and device IDs
 - Automatic token acquisition and refresh
 - DataUpdateCoordinator polling
