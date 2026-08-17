@@ -55,7 +55,18 @@ class CubyCoordinator(DataUpdateCoordinator[dict]):
                     text = await resp.text()
                     raise UpdateFailed(f"Token request failed: {resp.status} - {text}")
 
-                data = await resp.json()
+                # Handle non-standard MIME type (text/json)
+                if resp.content_type not in ("application/json", "text/json"):
+                    text = await resp.text()
+                    try:
+                        import json
+                        data = json.loads(text)
+                    except Exception as e:
+                        _LOGGER.warning("Failed to parse JSON manually for %s: %s", device_id, e)
+                        return None, None
+                else:
+                    data = await resp.json(content_type=None)
+
                 token = data.get("token")
                 exp_seconds = data.get("expiration", DEFAULT_TOKEN_EXP_SECONDS)
 
@@ -92,8 +103,14 @@ class CubyCoordinator(DataUpdateCoordinator[dict]):
                     text = await resp.text()
                     _LOGGER.warning("Gas level fetch failed for %s: %s - %s", device_id, resp.status, text)
                     return None, None
+                try:
+                    text = await resp.text()
+                    import json
+                    data = json.loads(text)
+                except Exception as e:
+                    _LOGGER.warning("Failed to parse JSON manually for %s: %s", device_id, e)
+                    return None, None
 
-                data = await resp.json()
                 level = data.get("level")
                 timestamp = data.get("timestamp")
                 return level, timestamp
